@@ -27,7 +27,9 @@ public class CourseServiceImpl implements CourseService
     @Override
     public ArrayList<CountStudentsInCourses> getCountStudentsInCourse()
     {
-        return courserepos.getCountStudentsInCourse();
+        ArrayList<CountStudentsInCourses> count = new ArrayList<>();
+        courserepos.getCountStudentsInCourse().iterator().forEachRemaining(count::add);
+        return count;
     }
 
     @Transactional
